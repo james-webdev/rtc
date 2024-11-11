@@ -1,0 +1,30 @@
+{
+  "name": "@fdr/react-tailwind-converter",
+  "version": "1.0.0",
+  "description": "The internal package will let developers within our monorepo style React components using props, instead of adding Tailwind CSS classes directly",
+  "scripts": {
+    "build": "npx tailwindcss -i ./styles/globals.src.css -o ./styles/globals.css --minify",
+    "dev": "npx tailwindcss -i ./styles/globals.src.css -o ./styles/globals.css --watch --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "components/index.ts",
+  "module": "components/index.ts",
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "@tailwindcss/nesting": "0.0.0-insiders.565cd3e",
+    "clsx": "^2.1.1",
+    "postcss-import": "^16.1.0",
+    "react": "18.3.1",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss": "^3.4.12"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.12",
+    "@types/react": "18.3.2",
+    "@types/react-dom": "18.3.0",
+    "typescript": "^5.6.0-dev.20240819"
+  }
+}
