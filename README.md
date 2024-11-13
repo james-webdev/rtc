@@ -1,6 +1,6 @@
 # React Tailwind Converter
 
-**Version:** 1.0.40
+**Version:** 1.0.48
 
 ## Description
 
@@ -104,6 +104,102 @@ import { Box } from "react-tailwind-converter";
   Content goes here
 </Box>
 ```
+
+## Color Configuration
+
+The package provides two ways to configure your colors:
+
+### 1. Using Default Colors (Inspired by NextUI)
+
+The simplest way is to use our default color tokens (inspired by NextUI's color system):
+
+```js
+import type { Config } from "tailwindcss";
+import { safeList, colorMap } from "react-tailwind-converter";
+
+export default {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  safelist: safeList(),
+  theme: {
+    colors: colorMap,  // Uses our default color system
+  },
+  plugins: [],
+} satisfies Config;
+```
+
+### 2. Custom Colors
+
+You can define your own colors, but you must maintain the same token structure. Your colors object needs to include these specific keys:
+
+```js
+import type { Config } from "tailwindcss";
+import { safeList } from "react-tailwind-converter";  // Don't import colorMap when using custom colors
+
+export default {
+  content: [...],
+  safelist: safeList(),
+  theme: {
+    colors: {
+      // Required base colors
+      background: string,      // e.g., '#FFFFFF'
+      foreground: string,      
+      white: string,
+      black: string,
+      transparent: string,
+      whiteTransparent: string,
+      divider: string,
+      focus: string,
+      'content-1': string,
+      'content-2': string,
+      'content-3': string,
+      'content-4': string,
+
+      // Required color scales (must include 50-900)
+      primary: {
+        50: string,
+        100: string,
+        // ... through 900
+      },
+      default: {
+        // same structure as primary
+      },
+      success: {
+        // same structure as primary
+      },
+      warning: {
+        // same structure as primary
+      },
+      danger: {
+        // same structure as primary
+      }
+    }
+  },
+  plugins: [],
+} satisfies Config;
+```
+
+For example, you could use different color values while maintaining the structure:
+
+```js
+theme: {
+  colors: {
+    background: 'peachpuff',
+    primary: {
+      50: '#your-color',
+      100: '#your-color',
+      // ... etc
+    },
+    // ... other required tokens
+  }
+}
+```
+
+The Box component will use these color tokens via props like `bgc="primary-500"` or `textColor="danger-200"`.
+
 ## Development
 
 1. Clone the repo

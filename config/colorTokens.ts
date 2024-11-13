@@ -4,18 +4,13 @@ export const colorTokens = {
   white: 'white',
   black: 'black',
   transparent: 'transparent',
-  whiteTransparent: 'whiteTransparent',
   divider: 'divider',
   focus: 'focus',
-  backgroundOneLight: 'backgroundOneLight',
-  backgroundTwoLight: 'backgroundTwoLight',
-  backgroundOneDark: 'backgroundOneDark',
-  backgroundTwoDark: 'backgroundTwoDark',
   'content-1': 'content1',
   'content-2': 'content2',
   'content-3': 'content3',
   'content-4': 'content4',
-  primary: 'primary-500',
+  
 
   // Default Colors
   'default-50': 'default-50',
@@ -40,6 +35,19 @@ export const colorTokens = {
   'primary-700': 'primary-700',
   'primary-800': 'primary-800',
   'primary-900': 'primary-900',
+
+  // Secondary Colors
+  'secondary-50': 'secondary-50',
+  'secondary-100': 'secondary-100',
+  'secondary-200': 'secondary-200',
+  'secondary-300': 'secondary-300',
+  'secondary-400': 'secondary-400',
+  'secondary-500': 'secondary-500',
+  'secondary-600': 'secondary-600',
+  'secondary-700': 'secondary-700',
+  'secondary-800': 'secondary-800',
+  'secondary-900': 'secondary-900',
+
 
   // Success Colors
   'success-50': 'success-50',
