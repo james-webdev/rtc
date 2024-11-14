@@ -97,7 +97,7 @@ const handleObjectValue = (
     .join(' ')
 }
 
-const generateClasses = (props: Partial<BoxProps>): string => {
+export const generateClasses = (props: Partial<BoxProps>): string => {
   return styleProps
     .flatMap(({ prop, prefix }) => {
       const value = props[prop]

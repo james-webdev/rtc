@@ -1,6 +1,6 @@
 {
   "name": "react-tailwind-converter",
-  "version": "1.0.50",
+  "version": "1.0.56",
   "description": "This package will let developers style React components using props, instead of adding Tailwind CSS classes directly",
   "scripts": {
     "build": "tsup components/index.ts --format cjs,esm --dts --out-dir dist",

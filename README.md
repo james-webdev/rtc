@@ -1,6 +1,6 @@
 # React Tailwind Converter
 
-**Version:** 1.0.50
+**Version:** 1.0.56
 
 ## Description
 
@@ -150,13 +150,17 @@ export default {
       white: string,
       black: string,
       transparent: string,
-      whiteTransparent: string,
       divider: string,
       focus: string,
       'content-1': string,
       'content-2': string,
       'content-3': string,
       'content-4': string,
+      whiteTransparent: string,
+      backgroundOneLight: string,
+      backgroundTwoLight: string,
+      backgroundOneDark: string,
+      backgroundTwoDark: string,
 
       // Required color scales (must include 50-900)
       primary: {

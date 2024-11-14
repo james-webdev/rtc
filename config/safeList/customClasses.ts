@@ -1,6 +1,7 @@
 export default [
   '-ml-2',
   'bg-[length:100px]',
+  'bg-[length:50px]',
   'bg-clip-text',
   'bg-gradient-to-b',
   'bg-gradient-to-t',

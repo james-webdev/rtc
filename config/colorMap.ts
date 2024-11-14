@@ -5,10 +5,13 @@ export const colorMap = {
     white: '#FFFFFF',
     black: '#000000',
     transparent: 'transparent',
-    whiteTransparent: 'rgba(255, 255, 255, 0.20)',
+    whiteTransparent: '#ffffff33',
     divider: '#11111126',
     focus: '#006EFE',
-    
+    backgroundOneLight: '#f4f4f5',
+    backgroundTwoLight: '#fafafa',
+    backgroundOneDark: '#2E2E2E',
+    backgroundTwoDark: '#585858',
 
     // Content Colors
     'content-1': '#18181b',
