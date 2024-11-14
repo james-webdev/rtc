@@ -10,6 +10,12 @@ export const colorTokens = {
   'content-2': 'content2',
   'content-3': 'content3',
   'content-4': 'content4',
+  whiteTransparent: 'whiteTransparent',
+  backgroundOneLight: 'backgroundOneLight',
+  backgroundTwoLight: 'backgroundTwoLight',
+  backgroundOneDark: 'backgroundOneDark',
+  backgroundTwoDark: 'backgroundTwoDark',
+  
   
 
   // Default Colors
