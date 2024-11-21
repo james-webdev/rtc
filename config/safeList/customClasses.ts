@@ -31,6 +31,7 @@ export default [
   'xs:text-3xl',
   'xs:text-xs',
   'xs:text-sm',
+  'md:text-base',
   'md:text-2xl',
   'md:text-8xl',
   'md:absolute',
