@@ -30,6 +30,7 @@ export default [
   'md:writing-mode-vertical',
   'xs:text-3xl',
   'xs:text-xs',
+  'xs:text-sm',
   'md:text-2xl',
   'md:text-8xl',
   'md:absolute',
