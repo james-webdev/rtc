@@ -50,10 +50,12 @@ const handleResponsiveDimension = (
   value: string | number,
   breakpointPrefix = '',
 ): string => {
-  const sizePrefix = prop.includes('Width') ? 'w' : 'h'
+  const sizePrefix = prop.toLowerCase().includes('width') ? 'w' : 'h'
   const dimensionPrefix = prop.startsWith('max')
     ? `max-${sizePrefix}`
-    : `min-${sizePrefix}`
+    : prop.startsWith('min')
+    ? `min-${sizePrefix}`
+    : sizePrefix
   return handlePixelValue(dimensionPrefix, value, breakpointPrefix)
 }
 
@@ -77,14 +79,16 @@ const handleObjectValue = (
       }
 
       if (
-        ['maxWidth', 'minWidth', 'maxHeight', 'minHeight'].includes(
+        ['height', 'width', 'maxWidth', 'minWidth', 'maxHeight', 'minHeight'].includes(
           prop,
         )
       ) {
-        const sizePrefix = prop.includes('Width') ? 'w' : 'h'
+        const sizePrefix = prop.toLowerCase().includes('width') ? 'w' : 'h'
         const dimensionPrefix = prop.startsWith('max')
           ? `max-${sizePrefix}`
-          : `min-${sizePrefix}`
+          : prop.startsWith('min')
+          ? `min-${sizePrefix}`
+          : sizePrefix
         return handlePixelValue(
           dimensionPrefix,
           val,
@@ -106,7 +110,7 @@ export const generateClasses = (props: Partial<BoxProps>): string => {
 
       if (typeof value === 'string' || typeof value === 'number') {
         if (
-          ['maxWidth', 'minWidth', 'maxHeight', 'minHeight'].includes(
+          ['height', 'width', 'maxWidth', 'minWidth', 'maxHeight', 'minHeight'].includes(
             prop,
           )
         ) {
