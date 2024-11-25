@@ -1,6 +1,6 @@
 # React Tailwind Converter
 
-**Version:** 1.0.64
+**Version:** 1.0.65
 
 ## Description
 
@@ -211,4 +211,4 @@ The Box component will use these color tokens via props like `bgc="primary-500"`
 3. Run `pnpm dev` to start the dev environment
 
 ### Publishing
-The package is automatically published to NPM when changes are pushed to the main branch. Remember to update the version in `package.json` before pushing and here.
+The package is automatically published to NPM when changes are pushed to the main branch. Remember to update the version in `package.json` and here before pushing.

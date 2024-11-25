@@ -21,6 +21,7 @@ export default [
   'to-[#624925]',
   'to-[#7A5C2D]',
   'to-primary-500',
+  'top-[100px]',
   'via-[#fcddc1]',
   'via-[#ffcb9a]',
   'via-white to-[#ffcb9a]',
