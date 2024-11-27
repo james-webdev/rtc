@@ -45,7 +45,7 @@ const handlePixelValue = (
     : `${breakpointPrefix}${prefix}-${value}`
 }
 
-const handleResponsiveDimension = (
+const handleHeightWidthDimension = (
   prop: keyof BoxProps,
   value: string | number,
   breakpointPrefix = '',
@@ -57,6 +57,14 @@ const handleResponsiveDimension = (
     ? `min-${sizePrefix}`
     : sizePrefix
   return handlePixelValue(dimensionPrefix, value, breakpointPrefix)
+}
+
+const handleMarginValue = (
+  prop: keyof BoxProps,
+  value: string | number,
+  breakpointPrefix = '',
+): string => {
+  return handlePixelValue(prop, value, breakpointPrefix)
 }
 
 const handleObjectValue = (
@@ -95,6 +103,9 @@ const handleObjectValue = (
           breakpointPrefix,
         )
       }
+      if (['mt', 'mb', 'ml', 'mr', 'mx', 'my'].includes(prop)) {
+        return handlePixelValue(prefix, val, breakpointPrefix); 
+      }
       return `${breakpointPrefix}${prefix}${prefix ? '-' : ''}${String(val)}`
     })
     .filter(Boolean)
@@ -109,12 +120,11 @@ export const generateClasses = (props: Partial<BoxProps>): string => {
       if (prefix === 'grow') return value === true ? 'grow' : 'grow-0'
 
       if (typeof value === 'string' || typeof value === 'number') {
-        if (
-          ['height', 'width', 'maxWidth', 'minWidth', 'maxHeight', 'minHeight'].includes(
-            prop,
-          )
-        ) {
-          return handleResponsiveDimension(prop, value)
+        if (['height', 'width', 'maxWidth', 'minWidth', 'maxHeight', 'minHeight'].includes(prop)) {
+          return handleHeightWidthDimension(prop, value) 
+        }
+        if (['mt', 'mb', 'ml', 'mr', 'mx', 'my'].includes(prop)) {
+          return handleMarginValue(prop, value) 
         }
         return prop === 'borderColor' ||
           prop === 'bgc' ||

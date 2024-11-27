@@ -42,7 +42,7 @@ export const safeList = (): string[] => {
   Object.values(colorTokens).forEach(addColorClasses)
 
   const addHeightClasses = (classes: string[]): void => {
-    for (let i = 0; i <= 3000; i++) {
+    for (let i = 0; i <= 1500; i++) {
       const value = `[${i}px]`
       classes.push(`h-${value}`, `max-h-${value}`, `min-h-${value}`)
       addBreakpointClasses(classes, 'h', value)
@@ -51,7 +51,7 @@ export const safeList = (): string[] => {
     }
   }
   const addWidthClasses = (classes: string[]): void => {
-    for (let i = 1; i <= 3000; i++) {
+    for (let i = 0; i <= 1500; i++) {
       const value = `[${i}px]`
       classes.push(`w-${value}`, `max-w-${value}`, `min-w-${value}`)
       addBreakpointClasses(classes, 'w', value)
@@ -60,6 +60,17 @@ export const safeList = (): string[] => {
     }
   }
 
+  const addMarginClasses = (classes: string[]): void => {
+    for (let i = 0; i <= 1500; i++) {
+      const value = `[${i}px]`
+      ;['mt', 'mb', 'ml', 'mr', 'mx', 'my'].forEach((prefix) => {
+        classes.push(`${prefix}-${value}`)
+        addBreakpointClasses(classes, prefix, value)
+      })
+    }
+  }
+
+  addMarginClasses(classes)
   addHeightClasses(classes)
   addWidthClasses(classes)
 
