@@ -64,8 +64,17 @@ const handleMarginValue = (
   value: string | number,
   breakpointPrefix = '',
 ): string => {
-  return handlePixelValue(prop, value, breakpointPrefix)
-}
+  if (typeof value === 'string' && value.startsWith('-')) {
+    const positiveValue = value.substring(1);
+    return `${breakpointPrefix}-${prop}-${positiveValue}`;
+  } else if (typeof value === 'number' && value < 0) {
+    const positiveValue = Math.abs(value);
+    return `${breakpointPrefix}-${prop}-[${positiveValue}px]`;
+  } else if (typeof value === 'number') {
+    return `${breakpointPrefix}${prop}-[${value}px]`;
+  }
+  return `${breakpointPrefix}${prop}-${value}`;
+};
 
 const handleObjectValue = (
   prefix: string,
@@ -104,7 +113,7 @@ const handleObjectValue = (
         )
       }
       if (['mt', 'mb', 'ml', 'mr', 'mx', 'my'].includes(prop)) {
-        return handlePixelValue(prefix, val, breakpointPrefix); 
+        return handleMarginValue(prop, val, breakpointPrefix); 
       }
       return `${breakpointPrefix}${prefix}${prefix ? '-' : ''}${String(val)}`
     })
