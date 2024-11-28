@@ -17,7 +17,16 @@ export const addClassesFromMapping = (
 ): void => {
   values.forEach((value) => {
     const stringValue = String(value)
-    classes.push(value === '' ? prefix : `${prefix}-${stringValue}`)
-    addBreakpointClasses(classes, prefix, stringValue)
+    
+     if (stringValue.startsWith('-')) {
+      const positiveValue = stringValue.substring(1); 
+      const negativePrefix = `-${prefix}`; 
+      classes.push(`${negativePrefix}-${positiveValue}`);
+      addBreakpointClasses(classes, negativePrefix, positiveValue); 
+    } else {
+      
+      classes.push(`${prefix}-${stringValue}`);
+      addBreakpointClasses(classes, prefix, stringValue);
+    }
   })
 }

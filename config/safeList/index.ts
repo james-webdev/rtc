@@ -62,13 +62,18 @@ export const safeList = (): string[] => {
 
   const addMarginClasses = (classes: string[]): void => {
     for (let i = 0; i <= 1500; i++) {
-      const value = `[${i}px]`
-      ;['mt', 'mb', 'ml', 'mr', 'mx', 'my'].forEach((prefix) => {
-        classes.push(`${prefix}-${value}`)
-        addBreakpointClasses(classes, prefix, value)
-      })
+      const value = `[${i}px]`;
+  
+      ['mt', 'mb', 'ml', 'mr', 'mx', 'my'].forEach((prefix) => {
+        classes.push(`${prefix}-${value}`);
+        addBreakpointClasses(classes, prefix, value);
+  
+        const negativePrefix = `-${prefix}`;
+        classes.push(`${negativePrefix}-${value}`);
+        addBreakpointClasses(classes, negativePrefix, value);
+      });
     }
-  }
+  };
 
   addMarginClasses(classes)
   addHeightClasses(classes)
