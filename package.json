@@ -10,21 +10,23 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "keywords": [ "React",
-  "Next.js",
-  "Tailwind CSS",
-  "Tailwind converter",
-  "Prop-based styling",
-  "React components",
-  "Utility-first CSS",
-  "Design systems",
-  "Monorepo",
-  "Component library",
-  "Safe list generation"],
+  "keywords": [
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "Tailwind converter",
+    "Prop-based styling",
+    "React components",
+    "Utility-first CSS",
+    "Design systems",
+    "Monorepo",
+    "Component library",
+    "Safe list generation"
+  ],
   "author": "james-webdev",
   "contributors": [
-  "kriffin"
-],
+    "kriffin"
+  ],
   "license": "MIT",
   "dependencies": {
     "clsx": "^2.1.1",

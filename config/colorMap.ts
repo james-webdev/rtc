@@ -1,66 +1,66 @@
 export const colorMap = {
-    // Basic Colors
-    background: '#FFFFFF',
-    foreground: '#11181C',
-    white: '#FFFFFF',
-    black: '#000000',
-    transparent: 'transparent',
-    whiteTransparent: '#ffffff33',
-    divider: '#11111126',
-    focus: '#006EFE',
-    backgroundOneLight: '#f4f4f5',
-    backgroundTwoLight: '#fafafa',
-    backgroundOneDark: '#2E2E2E',
-    backgroundTwoDark: '#585858',
+  // Basic Colors
+  background: '#FFFFFF',
+  foreground: '#11181C',
+  white: '#FFFFFF',
+  black: '#000000',
+  transparent: 'transparent',
+  whiteTransparent: '#ffffff33',
+  divider: '#11111126',
+  focus: '#006EFE',
+  backgroundOneLight: '#f4f4f5',
+  backgroundTwoLight: '#fafafa',
+  backgroundOneDark: '#2E2E2E',
+  backgroundTwoDark: '#585858',
 
-    // Content Colors
-    'content-1': '#18181b',
-    'content-2': '#27272a',
-    'content-3': '#3f3f46',
-    'content-4': '#52525b',
-  
-   // Primary Colors
-    primary: {
-      50: '#001731',
-      100: '#002e62',
-      200: '#004493',
-      300: '#005bc4',
-      400: '#006FEE',
-      500: '#338ef7',
-      600: '#66aaf9',
-      700: '#99c7fb',
-      800: '#cce3fd',
-      900: '#e6f1fe',
-    },
+  // Content Colors
+  'content-1': '#18181b',
+  'content-2': '#27272a',
+  'content-3': '#3f3f46',
+  'content-4': '#52525b',
 
-    // Secondary Colors
-    secondary: {
-      50: '#180828',
-      100: '#301050',
-      200: '#481878',
-      300: '#6020a0',
-      400: '#7828c8',
-      500: '#9353d3',
-      600: '#ae7ede',
-      700: '#c9a9e9',
-      800: '#e4d4f4',
-      900: '#f2eafa',
-    },
-  
-   // Default Colors
-    default: {
-      50: '#18181b',
-      100: '#27272a',
-      200: '#3f3f46',
-      300: '#52525b',
-      400: '#71717a',
-      500: '#a1a1aa',
-      600: '#d4d4d8',
-      700: '#e4e4e7',
-      800: '#f4f4f5',
-      900: '#fafafa',
-    },
-  
+  // Primary Colors
+  primary: {
+    50: '#001731',
+    100: '#002e62',
+    200: '#004493',
+    300: '#005bc4',
+    400: '#006FEE',
+    500: '#338ef7',
+    600: '#66aaf9',
+    700: '#99c7fb',
+    800: '#cce3fd',
+    900: '#e6f1fe',
+  },
+
+  // Secondary Colors
+  secondary: {
+    50: '#180828',
+    100: '#301050',
+    200: '#481878',
+    300: '#6020a0',
+    400: '#7828c8',
+    500: '#9353d3',
+    600: '#ae7ede',
+    700: '#c9a9e9',
+    800: '#e4d4f4',
+    900: '#f2eafa',
+  },
+
+  // Default Colors
+  default: {
+    50: '#18181b',
+    100: '#27272a',
+    200: '#3f3f46',
+    300: '#52525b',
+    400: '#71717a',
+    500: '#a1a1aa',
+    600: '#d4d4d8',
+    700: '#e4e4e7',
+    800: '#f4f4f5',
+    900: '#fafafa',
+  },
+
   // Success Colors
   success: {
     50: '#052814',
@@ -74,8 +74,8 @@ export const colorMap = {
     800: '#d1f4e0',
     900: '#e8faf0',
   },
-  
-   // Warning Colors
+
+  // Warning Colors
   warning: {
     50: '#312107',
     100: '#62420e',
@@ -88,8 +88,8 @@ export const colorMap = {
     800: '#fdedd3',
     900: '#fefce8',
   },
-  
-   // Danger Colors
+
+  // Danger Colors
   danger: {
     50: '#310413',
     100: '#610726',
@@ -102,4 +102,4 @@ export const colorMap = {
     800: '#fdd0df',
     900: '#fee7ef',
   },
-  };
+}

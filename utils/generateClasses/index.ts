@@ -144,7 +144,9 @@ export const generateClasses = (props: Partial<BoxProps>): string => {
             'minHeight',
           ].includes(prop)
         ) {
-          return handleHeightWidthDimension(prop, value)
+
+          return handleHeightWidthDimension(prop, value) 
+          
         }
         if (['mt', 'mb', 'ml', 'mr', 'mx', 'my'].includes(prop)) {
           return handleMarginValue(prop, value)

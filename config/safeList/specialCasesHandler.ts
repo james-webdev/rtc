@@ -1,7 +1,4 @@
-import {
-  addBreakpointClasses,
-  addClassesFromMapping,
-} from './classUtils'
+import { addBreakpointClasses, addClassesFromMapping } from './classUtils'
 
 export const handleSpecialCases = (
   classes: string[],
