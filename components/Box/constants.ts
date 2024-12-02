@@ -432,6 +432,16 @@ export const constants = {
   translateValues,
 }
 
+const transition = [
+  'none',
+  'all',
+  'default',
+  'colors',
+  'opacity',
+  'shadow',
+  'transform',
+] as const
+
 // Générer les types depuis les constantes
 export type BorderWidthValues =
   (typeof constants.border.width)[number]
@@ -490,3 +500,4 @@ export type OverFlow = (typeof constants.layout.overflow)[number]
 export type TranslateValues =
   (typeof constants.translateValues)[number]
 export type RotateValues = (typeof constants.layout.rotate)[number]
+export type TransitionValues = (typeof transition)[number]
