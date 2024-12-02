@@ -3,14 +3,14 @@ name: Publish to NPM
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -19,10 +19,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-      
+
       - name: Build
         run: npm run build
-      
+
       - name: Publish to NPM
         run: npm publish --access public
         env:

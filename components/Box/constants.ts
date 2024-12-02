@@ -87,10 +87,7 @@ const sizes = generateValues([
   'min',
   'max',
 ])
-export const spacingValues = generateValues(
-  baseSpacing,
-  positionalValues,
-)
+export const spacingValues = generateValues(baseSpacing, positionalValues)
 const flexValues = ['1', 'auto', 'initial', 'none'] as const
 const flexShrinkValues = ['0', '1'] as const
 const flexGrowValues = [false, true] as const
@@ -252,14 +249,7 @@ export const border = {
     'bl-3xl',
     'bl-full',
   ] as const,
-  style: [
-    'solid',
-    'dashed',
-    'dotted',
-    'double',
-    'hidden',
-    'none',
-  ] as const,
+  style: ['solid', 'dashed', 'dotted', 'double', 'hidden', 'none'] as const,
 }
 
 export const layout = {
@@ -268,13 +258,7 @@ export const layout = {
     [...baseSpacing, ...fractionValues],
     positionalValues,
   ),
-  alignItems: [
-    'start',
-    'center',
-    'end',
-    'stretch',
-    'baseline',
-  ] as const,
+  alignItems: ['start', 'center', 'end', 'stretch', 'baseline'] as const,
   alignContent: [
     'start',
     'center',
@@ -297,31 +281,10 @@ export const layout = {
   justifyItems: ['start', 'center', 'end', 'stretch'] as const,
   direction: ['row', 'row-reverse', 'col', 'col-reverse'] as const,
   wrap: ['wrap', 'wrap-reverse', 'nowrap'] as const,
-  alignSelf: [
-    'auto',
-    'start',
-    'center',
-    'end',
-    'stretch',
-    'baseline',
-  ] as const,
+  alignSelf: ['auto', 'start', 'center', 'end', 'stretch', 'baseline'] as const,
   order: generateValues(baseSpacing, ['first', 'last', 'none']),
-  position: [
-    'static',
-    'fixed',
-    'absolute',
-    'relative',
-    'sticky',
-  ] as const,
-  zIndex: [
-    'z-0',
-    'z-10',
-    'z-20',
-    'z-30',
-    'z-40',
-    'z-50',
-    'z-auto',
-  ] as const,
+  position: ['static', 'fixed', 'absolute', 'relative', 'sticky'] as const,
+  zIndex: ['z-0', 'z-10', 'z-20', 'z-30', 'z-40', 'z-50', 'z-auto'] as const,
   display: [
     'block',
     'contents',
@@ -433,60 +396,34 @@ export const constants = {
 }
 
 // Générer les types depuis les constantes
-export type BorderWidthValues =
-  (typeof constants.border.width)[number]
-export type BorderRadiusValues =
-  (typeof constants.border.radius)[number]
-export type BorderStyleValues =
-  (typeof constants.border.style)[number]
-export type PositionValues =
-  (typeof constants.layout.position)[number]
+export type BorderWidthValues = (typeof constants.border.width)[number]
+export type BorderRadiusValues = (typeof constants.border.radius)[number]
+export type BorderStyleValues = (typeof constants.border.style)[number]
+export type PositionValues = (typeof constants.layout.position)[number]
 export type ZIndexValues = (typeof constants.layout.zIndex)[number]
 export type DisplayValues = (typeof constants.layout.display)[number]
-export type FlexGrowValues =
-  | (typeof constants.flexGrowValues)[number]
-  | number
+export type FlexGrowValues = (typeof constants.flexGrowValues)[number] | number
 export type GapValues = (typeof constants.layout.gap)[number] | number
-export type FlexBasisValues =
-  (typeof constants.layout.flexBasis)[number]
-export type AlignItemsValues =
-  (typeof constants.layout.alignItems)[number]
-export type AlignContentValues =
-  (typeof constants.layout.alignContent)[number]
+export type FlexBasisValues = (typeof constants.layout.flexBasis)[number]
+export type AlignItemsValues = (typeof constants.layout.alignItems)[number]
+export type AlignContentValues = (typeof constants.layout.alignContent)[number]
 export type JustifyContentValues =
   (typeof constants.layout.justifyContent)[number]
-export type JustifyItemsValues =
-  (typeof constants.layout.justifyItems)[number]
-export type DirectionValues =
-  (typeof constants.layout.direction)[number]
+export type JustifyItemsValues = (typeof constants.layout.justifyItems)[number]
+export type DirectionValues = (typeof constants.layout.direction)[number]
 export type WrapValues = (typeof constants.layout.wrap)[number]
-export type HeightValues =
-  | (typeof constants.size.height)[number]
-  | number
-export type MaxHeightValues =
-  | (typeof constants.size.maxHeight)[number]
-  | number
-export type MaxWidthValues =
-  | (typeof constants.size.maxWidth)[number]
-  | number
-export type SpacingValues =
-  | (typeof constants.spacingAll)[number]
-  | number
+export type HeightValues = (typeof constants.size.height)[number] | number
+export type MaxHeightValues = (typeof constants.size.maxHeight)[number] | number
+export type MaxWidthValues = (typeof constants.size.maxWidth)[number] | number
+export type SpacingValues = (typeof constants.spacingAll)[number] | number
 export type OpacityValues = (typeof constants.size.opacity)[number]
-export type AlignSelfValues =
-  (typeof constants.layout.alignSelf)[number]
-export type FlexShrinkValues =
-  (typeof constants.flexShrinkValues)[number]
+export type AlignSelfValues = (typeof constants.layout.alignSelf)[number]
+export type FlexShrinkValues = (typeof constants.flexShrinkValues)[number]
 export type FlexValues = (typeof constants.flexValues)[number]
 export type OrderValues = (typeof constants.layout.order)[number]
-export type WidthValues =
-  | (typeof constants.size.width)[number]
-  | number
-export type PositionalValues =
-  | (typeof positionalValues)[number]
-  | number
+export type WidthValues = (typeof constants.size.width)[number] | number
+export type PositionalValues = (typeof positionalValues)[number] | number
 export type FractionValues = (typeof fractionValues)[number] | number
 export type OverFlow = (typeof constants.layout.overflow)[number]
-export type TranslateValues =
-  (typeof constants.translateValues)[number]
+export type TranslateValues = (typeof constants.translateValues)[number]
 export type RotateValues = (typeof constants.layout.rotate)[number]

@@ -1,22 +1,14 @@
 import { isValidElement } from 'react'
-import {
-  type ColorToken,
-  colorTokens,
-} from '../../config/colorTokens'
+import { type ColorToken, colorTokens } from '../../config/colorTokens'
 import type { BoxProps } from '../../components/Box/index'
 import { styleProps } from './styleprops'
 
 const isObject = (
   value: unknown,
 ): value is Record<string, string | number | undefined> =>
-  typeof value === 'object' &&
-  value !== null &&
-  !isValidElement(value)
+  typeof value === 'object' && value !== null && !isValidElement(value)
 
-const formatValue = (
-  prefix: string,
-  value: string | number,
-): string => {
+const formatValue = (prefix: string, value: string | number): string => {
   if (typeof value === 'string' && value.startsWith('-')) {
     const positiveValue = value.substring(1)
     return `-${prefix}-${positiveValue}`
@@ -28,10 +20,7 @@ const formatValue = (
   return `${prefix}${prefix ? '-' : ''}${String(value)}`
 }
 
-const handleColorValue = (
-  prefix: string,
-  value: string | number,
-): string => {
+const handleColorValue = (prefix: string, value: string | number): string => {
   return `${prefix}${prefix ? '-' : ''}${colorTokens[value as ColorToken]}`
 }
 
@@ -65,16 +54,16 @@ const handleMarginValue = (
   breakpointPrefix = '',
 ): string => {
   if (typeof value === 'string' && value.startsWith('-')) {
-    const positiveValue = value.substring(1);
-    return `${breakpointPrefix}-${prop}-${positiveValue}`;
+    const positiveValue = value.substring(1)
+    return `${breakpointPrefix}-${prop}-${positiveValue}`
   } else if (typeof value === 'number' && value < 0) {
-    const positiveValue = Math.abs(value);
-    return `${breakpointPrefix}-${prop}-[${positiveValue}px]`;
+    const positiveValue = Math.abs(value)
+    return `${breakpointPrefix}-${prop}-[${positiveValue}px]`
   } else if (typeof value === 'number') {
-    return `${breakpointPrefix}${prop}-[${value}px]`;
+    return `${breakpointPrefix}${prop}-[${value}px]`
   }
-  return `${breakpointPrefix}${prop}-${value}`;
-};
+  return `${breakpointPrefix}${prop}-${value}`
+}
 
 const handleObjectValue = (
   prefix: string,
@@ -84,21 +73,23 @@ const handleObjectValue = (
   return Object.entries(value)
     .map(([breakpoint, val]) => {
       if (val === undefined) return ''
-      const breakpointPrefix =
-        breakpoint === 'default' ? '' : `${breakpoint}:`
+      const breakpointPrefix = breakpoint === 'default' ? '' : `${breakpoint}:`
 
-      if (
-        prop === 'borderColor' ||
-        prop === 'bgc' ||
-        prop === 'textColor'
-      ) {
-        return `${breakpointPrefix}${prefix ? `${prefix}-` : ''}${colorTokens[val as ColorToken]}`
+      if (prop === 'borderColor' || prop === 'bgc' || prop === 'textColor') {
+        return `${breakpointPrefix}${prefix ? `${prefix}-` : ''}${
+          colorTokens[val as ColorToken]
+        }`
       }
 
       if (
-        ['height', 'width', 'maxWidth', 'minWidth', 'maxHeight', 'minHeight'].includes(
-          prop,
-        )
+        [
+          'height',
+          'width',
+          'maxWidth',
+          'minWidth',
+          'maxHeight',
+          'minHeight',
+        ].includes(prop)
       ) {
         const sizePrefix = prop.toLowerCase().includes('width') ? 'w' : 'h'
         const dimensionPrefix = prop.startsWith('max')
@@ -106,14 +97,10 @@ const handleObjectValue = (
           : prop.startsWith('min')
           ? `min-${sizePrefix}`
           : sizePrefix
-        return handlePixelValue(
-          dimensionPrefix,
-          val,
-          breakpointPrefix,
-        )
+        return handlePixelValue(dimensionPrefix, val, breakpointPrefix)
       }
       if (['mt', 'mb', 'ml', 'mr', 'mx', 'my'].includes(prop)) {
-        return handleMarginValue(prop, val, breakpointPrefix); 
+        return handleMarginValue(prop, val, breakpointPrefix)
       }
       return `${breakpointPrefix}${prefix}${prefix ? '-' : ''}${String(val)}`
     })
@@ -129,15 +116,22 @@ export const generateClasses = (props: Partial<BoxProps>): string => {
       if (prefix === 'grow') return value === true ? 'grow' : 'grow-0'
 
       if (typeof value === 'string' || typeof value === 'number') {
-        if (['height', 'width', 'maxWidth', 'minWidth', 'maxHeight', 'minHeight'].includes(prop)) {
+        if (
+          [
+            'height',
+            'width',
+            'maxWidth',
+            'minWidth',
+            'maxHeight',
+            'minHeight',
+          ].includes(prop)
+        ) {
           return handleHeightWidthDimension(prop, value) 
         }
         if (['mt', 'mb', 'ml', 'mr', 'mx', 'my'].includes(prop)) {
           return handleMarginValue(prop, value) 
         }
-        return prop === 'borderColor' ||
-          prop === 'bgc' ||
-          prop === 'textColor'
+        return prop === 'borderColor' || prop === 'bgc' || prop === 'textColor'
           ? handleColorValue(prefix, value)
           : formatValue(prefix, value)
       }

@@ -15,8 +15,6 @@ export const colorTokens = {
   backgroundTwoLight: 'backgroundTwoLight',
   backgroundOneDark: 'backgroundOneDark',
   backgroundTwoDark: 'backgroundTwoDark',
-  
-  
 
   // Default Colors
   'default-50': 'default-50',
@@ -53,7 +51,6 @@ export const colorTokens = {
   'secondary-700': 'secondary-700',
   'secondary-800': 'secondary-800',
   'secondary-900': 'secondary-900',
-
 
   // Success Colors
   'success-50': 'success-50',
