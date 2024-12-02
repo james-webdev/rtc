@@ -1,6 +1,6 @@
 # React Tailwind Converter
 
-**Version:** 1.0.88
+**Version:** 1.0.89
 
 ## Description
 
