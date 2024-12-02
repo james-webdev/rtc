@@ -2,6 +2,7 @@ import { isValidElement } from 'react'
 import { type ColorToken, colorTokens } from '../../config/colorTokens'
 import type { BoxProps } from '../../components/Box/index'
 import { styleProps } from './styleprops'
+import { TransitionValues } from '../../components/Box/constants'
 
 const isObject = (
   value: unknown,
@@ -65,6 +66,20 @@ const handleMarginValue = (
   return `${breakpointPrefix}${prop}-${value}`
 }
 
+const transitionMapping: Record<TransitionValues, string> = {
+  none: 'transition-none',
+  all: 'transition-all',
+  default: 'transition',
+  colors: 'transition-colors',
+  opacity: 'transition-opacity',
+  shadow: 'transition-shadow',
+  transform: 'transition-transform',
+}
+
+const handleTransitionValue = (value: TransitionValues): string => {
+  return transitionMapping[value]
+}
+
 const handleObjectValue = (
   prefix: string,
   value: Record<string, string | number | undefined>,
@@ -113,6 +128,9 @@ export const generateClasses = (props: Partial<BoxProps>): string => {
     .flatMap(({ prop, prefix }) => {
       const value = props[prop]
       if (value === undefined) return ''
+      if (prop === 'transition' && typeof value === 'string') {
+        return handleTransitionValue(value as TransitionValues)
+      }
       if (prefix === 'grow') return value === true ? 'grow' : 'grow-0'
 
       if (typeof value === 'string' || typeof value === 'number') {
@@ -126,10 +144,12 @@ export const generateClasses = (props: Partial<BoxProps>): string => {
             'minHeight',
           ].includes(prop)
         ) {
+
           return handleHeightWidthDimension(prop, value) 
+          
         }
         if (['mt', 'mb', 'ml', 'mr', 'mx', 'my'].includes(prop)) {
-          return handleMarginValue(prop, value) 
+          return handleMarginValue(prop, value)
         }
         return prop === 'borderColor' || prop === 'bgc' || prop === 'textColor'
           ? handleColorValue(prefix, value)

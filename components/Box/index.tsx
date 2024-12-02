@@ -57,6 +57,7 @@ export interface BoxProps {
   width?: ResponsiveValue<BoxConstants.MaxWidthValues>
   zindex?: ResponsiveValue<BoxConstants.ZIndexValues>
   overflow?: ResponsiveValue<BoxConstants.OverFlow>
+  transition?: ResponsiveValue<BoxConstants.TransitionValues>;
   translateX?: ResponsiveValue<BoxConstants.TranslateValues>
   translateY?: ResponsiveValue<BoxConstants.TranslateValues>
   rotate?: ResponsiveValue<BoxConstants.RotateValues>
