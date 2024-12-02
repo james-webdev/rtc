@@ -59,4 +59,5 @@ export const styleProps: StyleProp[] = [
   { prop: 'translateX', prefix: 'translate-x' },
   { prop: 'translateY', prefix: 'translate-y' },
   { prop: 'rotate', prefix: 'rotate' },
+  { prop: 'transition', prefix: 'transition' },
 ]
