@@ -43,4 +43,11 @@ export default [
   'cursor-grabbing',
   'cursor-zoom-in',
   'cursor-zoom-out',
+  'transition',
+  'transition-none',
+  'transition-all',
+  'transition-colors',
+  'transition-opacity',
+  'transition-shadow',
+  'transition-transform',
 ]
