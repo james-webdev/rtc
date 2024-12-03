@@ -85,6 +85,7 @@ export const Box: React.FC<BoxProps> = ({
   className: injectedClassName,
   debugGrid = false,
   onSubmit,
+  style,
   ...props
 }) => {
   const Tag = as as keyof JSX.IntrinsicElements
@@ -92,7 +93,7 @@ export const Box: React.FC<BoxProps> = ({
   const isFlex = props.display === 'flex'
 
   return (
-    <Tag className={className} id={props.id} onSubmit={onSubmit}>
+    <Tag className={className} id={props.id} onSubmit={onSubmit} style={style}>
       {children}
       {isFlex && debugGrid && (
         <div
