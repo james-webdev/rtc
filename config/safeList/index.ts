@@ -40,7 +40,7 @@ export const safeList = (): string[] => {
   Object.values(colorTokens).forEach(addColorClasses)
 
   const addHeightClasses = (classes: string[]): void => {
-    for (let i = 0; i <= 1500; i++) {
+    for (let i = 0; i <= 3000; i++) {
       const value = `[${i}px]`
       classes.push(`h-${value}`, `max-h-${value}`, `min-h-${value}`)
       addBreakpointClasses(classes, 'h', value)
