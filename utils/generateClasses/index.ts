@@ -49,7 +49,7 @@ const handleHeightWidthDimension = (
   return handlePixelValue(dimensionPrefix, value, breakpointPrefix)
 }
 
-const handleMarginValue = (
+const handleResponsivePixelValue = (
   prop: keyof BoxProps,
   value: string | number,
   breakpointPrefix = '',
@@ -115,7 +115,10 @@ const handleObjectValue = (
         return handlePixelValue(dimensionPrefix, val, breakpointPrefix)
       }
       if (['mt', 'mb', 'ml', 'mr', 'mx', 'my'].includes(prop)) {
-        return handleMarginValue(prop, val, breakpointPrefix)
+        return handleResponsivePixelValue(prop, val, breakpointPrefix)
+      }
+      if (['top', 'bottom', 'left', 'right'].includes(prop)) {
+        return handleResponsivePixelValue(prop, val, breakpointPrefix)
       }
       return `${breakpointPrefix}${prefix}${prefix ? '-' : ''}${String(val)}`
     })
@@ -147,9 +150,6 @@ export const generateClasses = (props: Partial<BoxProps>): string => {
 
           return handleHeightWidthDimension(prop, value) 
           
-        }
-        if (['mt', 'mb', 'ml', 'mr', 'mx', 'my'].includes(prop)) {
-          return handleMarginValue(prop, value)
         }
         return prop === 'borderColor' || prop === 'bgc' || prop === 'textColor'
           ? handleColorValue(prefix, value)

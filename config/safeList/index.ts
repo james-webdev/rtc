@@ -93,7 +93,9 @@ export const safeList = (): string[] => {
     
     positions.forEach(position => {
       fractions.forEach(fraction => {
-        classes.push(`${position}-${fraction}`)
+        const value = fraction
+        classes.push(`${position}-${value}`)
+        addBreakpointClasses(classes, position, value)
       })
     })
   }
