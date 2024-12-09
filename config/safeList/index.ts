@@ -73,6 +73,32 @@ export const safeList = (): string[] => {
     }
   }
 
+  const addPositionClasses = (classes: string[]): void => {
+    
+    for (let i = 0; i <= 1500; i++) {
+      const value = `[${i}px]`
+
+      ;['top', 'bottom', 'left', 'right'].forEach((prefix) => {
+        classes.push(`${prefix}-${value}`)
+        addBreakpointClasses(classes, prefix, value)
+
+        const negativePrefix = `-${prefix}`
+        classes.push(`${negativePrefix}-${value}`)
+        addBreakpointClasses(classes, negativePrefix, value)
+      })
+    }
+
+    const fractions = ['auto', '1/2', '1/3', '2/3', '1/4', '2/4', '3/4', 'full']
+    const positions = ['top', 'bottom', 'left', 'right']
+    
+    positions.forEach(position => {
+      fractions.forEach(fraction => {
+        classes.push(`${position}-${fraction}`)
+      })
+    })
+  }
+
+  addPositionClasses(classes)
   addMarginClasses(classes)
   addHeightClasses(classes)
   addWidthClasses(classes)
